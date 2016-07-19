@@ -1,10 +1,10 @@
 #!/bin/bash
 INITIAL_HOME=STOP
-INSTALL_TOOL=STOP
+INSTALL_TOOL=RUN
 SET_VIMRC_CLIPBOARD=STOP
 INSTALL_ROS=STOP
 SET_ROS_ENV=STOP
-INSTALL_ROS_PKG=RUN
+INSTALL_ROS_PKG=STOP
 INSTALL_ARDUINO=STOP
 
 
@@ -32,6 +32,9 @@ sudo apt-get install vim
 sudo apt-get install vim-gtk
 sudo apt-get install terminator
 sudo apt-get install ibus-chewing
+sudo apt-get install top
+sudo apt-get install htop
+
 fi
 
 
@@ -55,7 +58,27 @@ echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 source /opt/ros/indigo/setup.bash
 sudo apt-get install python-rosinstall
-sudo apt-get install ros-indigo-slam-
+mkdir catkin_ws
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+cd ~/catkin_ws/
+catkin_make
+
+fi
+
+# install ROS TK1
+if [ $INSTALL_ROS_TK1 == "RUN" ]
+then
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 0xB01FA116
+sudo apt-get update
+sudo apt-get install ros-indigo-desktop
+rosdep update
+echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+source /opt/ros/indigo/setup.bash
+sudo apt-get install python-rosinstall
 mkdir catkin_ws
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
@@ -78,6 +101,9 @@ fi
 if [ $INSTALL_ROS_PKG == "RUN" ]
 then
 sudo apt-get install ros-indigo-joy*
+sudo apt-get install ros-indigo-openni2-*
+sudo apt-get install ros-indigo-costmap-*
+sudo apt-get install ros-indigo-robot-pose-ekf
 
 fi
 
