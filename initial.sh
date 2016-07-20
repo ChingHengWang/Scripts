@@ -93,6 +93,8 @@ if [ $SET_ROS_ENV == "RUN" ]
 then
 
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+echo "LC_ALL=C" >> ~/.bashrc
+
 fi
 
 
