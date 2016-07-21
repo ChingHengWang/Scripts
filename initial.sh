@@ -106,7 +106,7 @@ sudo apt-get install ros-indigo-joy*
 sudo apt-get install ros-indigo-openni2-*
 sudo apt-get install ros-indigo-costmap-*
 sudo apt-get install ros-indigo-robot-pose-ekf
-
+sudo apt-get install ros-indigo-uvc-camera
 fi
 
 #install ARDUINO
