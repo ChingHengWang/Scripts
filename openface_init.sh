@@ -3,8 +3,8 @@
 
 INITIAL_TOOL=STOP
 INSTALL_LIB=STOP
-INSTALL_TORCH=STOP
-INSTALL_TORCH_DEP=RUN
+INSTALL_TORCH=RUN
+INSTALL_TORCH_DEP=STOP
 INSTALL_OPENCV_2_4_11=STOP
 INSTALL_DLIB_18_16=STOP
 INSTALL_OPENFACE=STOP
@@ -34,12 +34,19 @@ fi
 
 if [ $INSTALL_LIB == "RUN" ]
 then
-pip2 install numpy scipy pandas  
-pip2 install scikit-learn scikit-image
+# data analysis library 
+# scientific computing
+sudo pip2 install numpy scipy pandas  
+#sckikit-learn machine learning
+sudo pip2 install scikit-learn scikit-image
+# or 
+#sudo apt-get install python-skimage
 fi
 
 
-
+# install Torch
+# Lua script LuaJIT
+# for deep learning
 if [ $INSTALL_TORCH == "RUN" ]
 then
 cd ~/
@@ -58,13 +65,13 @@ if [ $INSTALL_TORCH_DEP == "RUN" ]
 then
 cd ~/
 
-~/torch/install/bin/luarocks install dpnn  
-~/torch/install/bin/luarocks install nn  
-~/torch/install/bin/luarocks install optim  
-~/torch/install/bin/luarocks install csvigo  
-~/torch/install/bin/luarocks install cunn  
-~/torch/install/bin/luarocks install fblualib  
-~/torch/install/bin/luarocks install torchxfi
+sudo ~/torch/install/bin/luarocks install dpnn  
+sudo ~/torch/install/bin/luarocks install nn  
+sudo ~/torch/install/bin/luarocks install optim  
+sudo ~/torch/install/bin/luarocks install csvigo  
+sudo ~/torch/install/bin/luarocks install cunn  
+sudo ~/torch/install/bin/luarocks install fblualib  
+sudo ~/torch/install/bin/luarocks install torchxfi
 
 cd ~/torch
 git config --global user.email "qoogood1234@gmail.com" 
