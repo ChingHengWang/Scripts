@@ -72,6 +72,7 @@ sudo ~/torch/install/bin/luarocks install csvigo
 sudo ~/torch/install/bin/luarocks install cunn  
 sudo ~/torch/install/bin/luarocks install fblualib  
 sudo ~/torch/install/bin/luarocks install torchxfi
+sudo ~/torch/install/bin/luarocks install argcheck
 
 cd ~/torch
 git config --global user.email "qoogood1234@gmail.com" 
