@@ -2,6 +2,8 @@
 THEANO=RUN
 DOCKER=RUN
 
+sudo apt-get install nvidia-cuda-toolkit
+
 if [ $THEANO == "RUN" ]
 then
 sudo pip install Theano
