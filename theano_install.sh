@@ -5,6 +5,10 @@ DOCKER=RUN
 if [ $THEANO == "RUN" ]
 then
 sudo pip install Theano
+sudo pip install nose-parameterized
+sudo pip install nose
+sudo pip install --upgrade --no-deps theano
+sudo pip install --upgrade theano
 fi
 
 if [ $DOCKER == "RUN" ]
