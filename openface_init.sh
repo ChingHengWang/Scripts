@@ -3,11 +3,11 @@
 
 INITIAL_TOOL=STOP
 INSTALL_LIB=STOP
-INSTALL_TORCH=RUN
+INSTALL_TORCH=STOP
 INSTALL_TORCH_DEP=STOP
 INSTALL_OPENCV_2_4_11=STOP
 INSTALL_DLIB_18_16=STOP
-INSTALL_OPENFACE=STOP
+INSTALL_OPENFACE=RUN
 
 
 if [ $INITIAL_TOOL == "RUN" ]
@@ -38,9 +38,10 @@ then
 # scientific computing
 sudo pip2 install numpy scipy pandas  
 #sckikit-learn machine learning
-sudo pip2 install scikit-learn scikit-image
+sudo pip2 install scikit-learn 
+#scikit-image
 # or 
-#sudo apt-get install python-skimage
+sudo apt-get install python-skimage
 fi
 
 
@@ -56,7 +57,7 @@ curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | 
 git clone https://github.com/torch/distro.git ~/torch --recursive  
 cd ~/torch 
 bash install-deps
-./install.sh 
+sudo ./install.sh 
 source ~/.bashrc
 fi
 

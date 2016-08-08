@@ -105,6 +105,7 @@ fi
 export ROS_MASTER_URI='http://localhost:11311'
 export ROS_IP='192.168.25.81'
 export GAZEBO_MODEL_PATH=/home/zach/catkin_ws/src/andbot_simulator/andbot_robot/models:$GAZEBO_MODEL_PATH
+LC_ALL=C
 source /opt/ros/indigo/setup.bash
 source ~/catkin_ws/devel/setup.bash
 

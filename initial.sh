@@ -1,10 +1,11 @@
 #!/bin/bash
 INITIAL_HOME=STOP
-INSTALL_TOOL=RUN
+INSTALL_TOOL=STOP
+CLONE_PKG=STOP
 SET_VIMRC_CLIPBOARD=STOP
 INSTALL_ROS=STOP
 SET_ROS_ENV=STOP
-INSTALL_ROS_PKG=STOP
+INSTALL_ROS_PKG=RUN
 INSTALL_ARDUINO=STOP
 
 
@@ -18,7 +19,6 @@ then
 cd ~/
 rm Public -r
 rm Videos -r 
-rm Pictures -r
 rm Templates -r
 rm Music -r
 rm Documents -r
@@ -37,7 +37,11 @@ sudo apt-get install htop
 
 fi
 
-
+if [ $CLONE_PKG == "RUN" ]
+then
+git clone https://github.com/cmusatyalab/openface.git
+ 
+fi
 # set vimrc clipboard
 if [ $SET_VIMRC_CLIPBOARD == "RUN" ]
 then
@@ -64,7 +68,6 @@ cd ~/catkin_ws/src
 catkin_init_workspace
 cd ~/catkin_ws/
 catkin_make
-
 fi
 
 # install ROS TK1
@@ -85,16 +88,13 @@ cd ~/catkin_ws/src
 catkin_init_workspace
 cd ~/catkin_ws/
 catkin_make
-
 fi
 
 #set SET_ROS_ENV
 if [ $SET_ROS_ENV == "RUN" ]
 then
-
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 echo "LC_ALL=C" >> ~/.bashrc
-
 fi
 
 
