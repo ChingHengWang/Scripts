@@ -1,8 +1,9 @@
 #!/bin/bash
 THEANO=RUN
-DOCKER=RUN
+DOCKER=STOP
 
-sudo apt-get install nvidia-cuda-toolkit
+
+#sudo apt-get install nvidia-cuda-toolkit #dangerous
 
 if [ $THEANO == "RUN" ]
 then
