@@ -103,9 +103,22 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export ROS_MASTER_URI='http://localhost:11311'
+#export ROS_MASTER_URI='http://metal1:11311'
+
 export ROS_IP='192.168.25.81'
+#export ROS_IP='192.168.1.129'
 export GAZEBO_MODEL_PATH=/home/zach/catkin_ws/src/andbot_simulator/andbot_robot/models:$GAZEBO_MODEL_PATH
 LC_ALL=C
+export ROSLAUNCH_SSH_UNKNOWN=1
 source /opt/ros/indigo/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
+. /home/zach/torch/install/bin/torch-activate
+
+export PYTHONPATH=/usr/local/lib/python2.7/dist-packages:~/3d_party/caffe/python:$PYTHONPATH
+
+PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+
+# pocket sphinx
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
